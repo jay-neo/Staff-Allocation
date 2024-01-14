@@ -1,4 +1,4 @@
- <div align='center'><h1>Staff Allocation</h1></div>
+ <div align='center'><h1>Automated Job Allocator</h1></div>
 
 ## Problem Statement
 
@@ -10,7 +10,7 @@ Uneven task distribution among staff members is impacting productivity and job s
 2. Equitable task distribution as Workload Balancing
 3. Each job may have varying requirement
 
-Example: Teacher Allocation in Examination Rooms
+Example: Staff Allocation in Examination Rooms
 
 
 ## How to Test the Program
@@ -30,7 +30,7 @@ cd Staff-Allocation
 sh build.sh
 ```
 
-<div align='center'><img src="doc/unix_v2.png"/></div>
+<div align='center'><img src="doc/unix_v1.png"/></div>
 
 
 
@@ -50,7 +50,7 @@ cd Staff-Allocation
 & (Join-Path (Get-Location) "build.ps1")
 ```
 
-<div align='center'><img src="doc/win32_v2.png"/></div>
+<div align='center'><img src="doc/win32_v1.png"/></div>
 
 
 
