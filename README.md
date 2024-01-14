@@ -27,10 +27,10 @@ git clone https://github.com/jay-neo/Staff-Allocation.git
 cd Staff-Allocation
 ```
 ```sh
-g++ Staff-Allocation.cpp -o Staff-Allocation && ./Staff-Allocation
+sh build.sh
 ```
 
-<div align='center'><img src="doc/unix_v1.png"/></div>
+<div align='center'><img src="doc/unix_v2.png"/></div>
 
 
 
@@ -47,10 +47,10 @@ git clone https://github.com/jay-neo/Staff-Allocation.git
 cd Staff-Allocation
 ```
 ```sh
-g++ Staff-Allocation.cpp -o Staff-Allocation && ./Staff-Allocation
+& (Join-Path (Get-Location) "build.ps1")
 ```
 
-<div align='center'><img src="doc/win32_v1.png"/></div>
+<div align='center'><img src="doc/win32_v2.png"/></div>
 
 
 
@@ -59,9 +59,19 @@ g++ Staff-Allocation.cpp -o Staff-Allocation && ./Staff-Allocation
 ```
 Automated-Job-Allocator
     │
-    ├── Staff-Allocation.cpp
+    ├── src/
+    │    ├─── AuxiliaryHelper.cpp
+    │    ├─── AuxiliaryHelper.h
+    │    ├─── StaffAllocation.cpp
+    │    └─── StaffAllocation.h
     │
-    └── Staff-Allocation.csv // This is the input file
+    ├── main.cpp                            # starting point
+    ├── CMakeLists.txt                      # cmake file
+    │
+    ├── build.sh                            # build for unix
+    ├── build.ps1                           # build for win32
+    │
+    └── Automated-Job-Allocator.csv         # This is the input file
 
 ```
 
