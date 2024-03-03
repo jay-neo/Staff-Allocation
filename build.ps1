@@ -1,41 +1,39 @@
-if (-not (Test-Path (Get-Command cmake.exe -ErrorAction SilentlyContinue).Path)) {
+if (-not (Get-Command cmake.exe -ErrorAction SilentlyContinue).Path) {
     Write-Host "    ##################################"
     Write-Host "    #     CMake is not installed.    #"
     Write-Host "    ##################################"
-    
-    $choice = Read-Host "    Do you want to install it? (y/n)"
-    
-    if ($choice -eq 'y' -or $choice -eq 'Y') {
-        Write-Host "Installing CMake..."
-        
-        if (Get-Command choco -ErrorAction SilentlyContinue) {
-            choco install cmake -y
-        }
-        elseif (Test-Path (Get-Command winget -ErrorAction SilentlyContinue)) {
+    $choice = Read-Host "    Do you want to install it? [Y/n]"    
+    if ($choice -ne 'N' -or $choice -ne 'n') {
+        if (Get-Command winget -ErrorAction SilentlyContinue) {
+            Write-Host "Installing CMake..."
             winget install cmake
+        }
+        elseif (Get-Command choco -ErrorAction SilentlyContinue) {
+            Write-Host "Installing CMake..."
+            choco install cmake -y
         }
         else {
             Write-Host "    Unsupported package manager. Please install CMake manually."
             Write-Host "    Before running this program, make sure CMake is installed on your machine."
             exit 1
         }
-
         Write-Host "CMake has been installed."
     }
     else {
         Write-Host "    Before running this program, make sure CMake is installed on your machine."
+        exit 1
     }
 }
 
 if (Test-Path -Path ".\Build" -PathType Container) {
     Write-Host "'Build' folder is already present!"
     
-    $choice = Read-Host "Do you want to delete it? (y/n)"
-    if ($choice -eq 'y' -or $choice -eq 'Y') {
+    $choice = Read-Host "Do you want to delete it? [Y/n]"
+    if ($choice -ne 'N' -or $choice -ne 'n') {
         Write-Host "Deleting existing 'Build' folder..."
         Remove-Item -Path ".\Build" -Recurse -Force
     } else {
-        return
+        exit 1
     }
 }
 
