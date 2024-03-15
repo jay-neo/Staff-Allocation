@@ -41,7 +41,9 @@ if (Test-Path -Path ".\Build" -PathType Container) {
 mkdir build
 cd build
 cmake -G "MinGW Makefiles" ..
-mingw32-make
+# mingw32-make
+# cmake -G "Unix Makefiles" ..
+make
 cd ..
 cp Automated-Job-Allocator.csv bin/
 .\bin\Automated-Job-Allocator.exe
